@@ -1,3 +1,5 @@
+
+
 import { useEffect, useState } from 'react'
 import './App.css'
 
@@ -20,13 +22,12 @@ type UsuarioType = {
 }
 
 function App() {
-  const [nome, setNome] = useState("")
   const [produtos, setProdutos] = useState<ProdutoType[]>([])
   const [usuarios, setUsuarios] = useState<UsuarioType[]>([])
 
   // useEffect para carregar produtos e usuários
   useEffect(() => {
-    setNome("Guilherme Terenciani")
+
 
     // Buscar os produtos
     fetch("https://one022a-marketplace-bggt.onrender.com/produtos")
@@ -41,41 +42,61 @@ function App() {
 
   return (
     <>
-      <h1>{nome}</h1>
 
+<header className="site-header">
+
+  
+  <nav className="navigation">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#produtos">Produtos</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+
+  <div className="header-actions">
+    <button className="login-button">Login</button>
+  </div>
+</header>
       {/* Listagem de Produtos */}
       <div className="produtos-container">
-        <h2>Produtos</h2>
-        {
-          produtos.map(produto => (
-            <div key={produto.id} className="produto-item">
-              <h1>{produto.nome}</h1>
-              <div className='container-imagem'>
-                <img src={produto.imagem} alt="Imagem do produto" />
-              </div>
-              <p>{produto.preco}</p>
-              <p>{produto.descricao}</p>
-            </div>
-          ))
-        }
-      </div>
+  <h1 className='titulo-produto'>Produtos</h1>
+  <div className="produtos-list">
+    {
+      produtos.map(produto => (
+        <div key={produto.id} className="produto-item">
+          <h3 className="produto-nome">{produto.nome}</h3> {/* Use h3 para o nome do produto */}
+          <div className='container-imagem'>
+            <img src={produto.imagem} alt="Imagem do produto" />
+          </div>
+          <p className="produto-preco">{produto.preco}</p>
+          <p className="produto-descricao">{produto.descricao}</p>
+          <button className="botao-comprar">Comprar</button>
+        </div>
+      ))
+    }
+  </div>
+</div>
 
       {/* Listagem de Usuários */}
       <div className="usuarios-container">
-        <h2>Usuários</h2>
-        {
-          usuarios.map(usuario => (
-            <div key={usuario.id} className="usuario-item">
-              <h1>{usuario.name}</h1>
-              <p>Email: {usuario.email}</p>
-              <p>Criado em: {new Date(usuario.created_at).toLocaleDateString()}</p>
-              <p>Atualizado em: {new Date(usuario.updated_at).toLocaleDateString()}</p>
-            </div>
-          ))
-        }
-      </div>
+  <h1 className='titulo-usuario'>Usuários</h1>
+  <div className="usuarios-list"> {/* Adicionando wrapper */}
+    {
+      usuarios.map(usuario => (
+        <div key={usuario.id} className="usuario-item">
+          <h1 className="usuario-nome">{usuario.name}</h1>
+          <p>Email: {usuario.email}</p>
+          <p>Criado em: {new Date(usuario.created_at).toLocaleDateString()}</p>
+          <p>Atualizado em: {new Date(usuario.updated_at).toLocaleDateString()}</p>
+        </div>
+      ))
+    }
+  </div> {/* Fechando a div aqui */}
+</div>
     </>
   )
 }
 
-export default App
+export default App
