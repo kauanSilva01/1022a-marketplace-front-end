@@ -1,5 +1,6 @@
 
 
+
 import { useEffect, useState } from 'react'
 import './App.css'
 
@@ -38,10 +39,33 @@ function App() {
     fetch("https://one022a-marketplace-bggt.onrender.com/usuarios")
       .then(resposta => resposta.json())
       .then(dados => setUsuarios(dados))
+
+import { useEffect, useState } from 'react'
+import './App.css'
+type ProdutoType = {
+    id:number,
+    nome:string,
+    preco:string,
+    descricao:string,
+    imagem:string
+}
+function App() {
+  const [nome, setNome] = useState("")
+  const [produtos, setProdutos] = useState<ProdutoType []>([])
+  //useEffects(O que fazer, quando Fazer) []=> Hora do carregamento da página
+  useEffect(() => {
+    setNome("Guilherme Terenciani")
+    //Buscar os dados do BackENd
+    fetch("https://one022a-marketplace-e90o.onrender.com/produtos")
+      .then(resposta => resposta.json())
+      .then(dados => setProdutos(dados))
+    //Colocar em uma variável
+
   }, [])
 
   return (
     <>
+
 
 <header className="site-header">
 
