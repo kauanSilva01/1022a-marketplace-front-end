@@ -16,7 +16,7 @@ function CadastroProduto(){
             <h1>Meu Componente de Cadastro de Produtos</h1>
             <form onSubmit={handleForm}>
                 <div>
-                    <input placeholder="Id" type="text" name="id" id="id" onClick={handleId} />
+                    <input placeholder="Id" type="text" name="id" id="id" onChange={handleId} />
                 </div>
                 <div>
                     <input placeholder="Nome" type="text" name="nome" id="nome" />
