@@ -11,8 +11,6 @@ function CadastroProduto(){
     function handleId(event:ChangeEvent<HTMLInputElement>){
         setId(event.target.value)
     }
-
-    }
     return(
         <>
             <h1>Meu Componente de Cadastro de Produtos</h1>
