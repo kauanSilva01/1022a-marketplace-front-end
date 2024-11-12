@@ -1,6 +1,7 @@
 import {  ChangeEvent, FormEvent, useState } from "react"
-
+import { useNavigate } from 'react-router-dom';
 function CadastroProduto(){
+    const navigate = useNavigate()
     const [id,setId] = useState("")
     const [nome,setNome] = useState("")
     const [descricao,setDescricao] = useState("")
@@ -8,8 +9,6 @@ function CadastroProduto(){
     const [imagem,setImagem] = useState("")
     function handleForm(event:FormEvent){
         event.preventDefault()
-        console.log("Cliquei em cadastrar")
-        console.log(id,nome,descricao,preco,imagem)
         fetch("http://localhost:8000/produtos",{
             method:"POST",
             headers:{
@@ -22,8 +21,13 @@ function CadastroProduto(){
                 preco:preco,
                 imagem:imagem
             })
-        }).then(()=>{
-            console.log("Produto cadastrado com sucesso")
+        })
+        .then(()=>{
+            alert("Produto Cadastro com Sucesso")
+            navigate("/")
+        })
+        .catch(()=>{
+            console.log("Erro ao cadastrar produtos")
         })
     }
     function handleId(event:ChangeEvent<HTMLInputElement>){
