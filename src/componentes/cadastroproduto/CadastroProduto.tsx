@@ -2,14 +2,44 @@ import {  ChangeEvent, FormEvent, useState } from "react"
 
 function CadastroProduto(){
     const [id,setId] = useState("")
+    const [nome,setNome] = useState("")
+    const [descricao,setDescricao] = useState("")
+    const [preco,setPreco] = useState("")
+    const [imagem,setImagem] = useState("")
     function handleForm(event:FormEvent){
         event.preventDefault()
         console.log("Cliquei em cadastrar")
-        //Pegar os valores dos campos
-        //Mandar pelo fetch para o Back-End
+        console.log(id,nome,descricao,preco,imagem)
+        fetch("http://localhost:8000/produtos",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({
+                id:id,
+                nome:nome,
+                descricao:descricao,
+                preco:preco,
+                imagem:imagem
+            })
+        }).then(()=>{
+            console.log("Produto cadastrado com sucesso")
+        })
     }
     function handleId(event:ChangeEvent<HTMLInputElement>){
         setId(event.target.value)
+    }
+    function handleNome(event:ChangeEvent<HTMLInputElement>){
+        setNome(event.target.value)
+    }
+    function handleDescricao(event:ChangeEvent<HTMLInputElement>){
+        setDescricao(event.target.value)
+    }
+    function handlePreco(event:ChangeEvent<HTMLInputElement>){
+        setPreco(event.target.value)
+    }
+    function handleImagem(event:ChangeEvent<HTMLInputElement>){
+        setImagem(event.target.value)
     }
     return(
         <>
@@ -19,16 +49,16 @@ function CadastroProduto(){
                     <input placeholder="Id" type="text" name="id" id="id" onChange={handleId} />
                 </div>
                 <div>
-                    <input placeholder="Nome" type="text" name="nome" id="nome" />
+                    <input placeholder="Nome" type="text" name="nome" id="nome" onChange={handleNome} />
                 </div>
                 <div>
-                    <input placeholder="Descrição" type="text" name="descricao" id="descricao" />
+                    <input placeholder="Descrição" type="text" name="descricao" id="descricao" onChange={handleDescricao} />
                 </div>
                 <div>
-                    <input placeholder="Preço" type="text" name="preco" id="preco" />
+                    <input placeholder="Preço" type="text" name="preco" id="preco" onChange={handlePreco} />
                 </div>
                 <div>
-                    <input placeholder="URL Imagem" type="text" name="imagem" id="imagem" />
+                    <input placeholder="URL Imagem" type="text" name="imagem" id="imagem" onChange={handleImagem} />
                 </div>
                 <input type="submit" value="Cadastrar" />
             </form>
