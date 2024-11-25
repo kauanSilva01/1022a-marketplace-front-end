@@ -247,7 +247,7 @@
   .produto-item,
   .usuario-item {
     width: calc(100% - 1rem);}
-
+  }
 
 
 .produtos-container{

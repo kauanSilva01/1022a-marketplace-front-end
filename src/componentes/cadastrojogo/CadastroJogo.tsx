@@ -1,6 +1,6 @@
 import {  ChangeEvent, FormEvent, useState } from "react"
 import { useNavigate } from 'react-router-dom';
-function CadastroProduto(){
+function CadastroJogo(){
     const navigate = useNavigate()
     const [id,setId] = useState("")
     const [nome,setNome] = useState("")
@@ -10,7 +10,7 @@ function CadastroProduto(){
     async function handleForm(event:FormEvent){
         event.preventDefault()
         try{
-            const resposta = await fetch("http://localhost:8000/produtos",{
+            const resposta = await fetch("http://localhost:8000/jogos",{
                 method:"POST",
                 headers:{
                     "Content-Type":"application/json"
@@ -77,4 +77,4 @@ function CadastroProduto(){
     )
 }
 
-export default CadastroProduto
+export default CadastroJogo
