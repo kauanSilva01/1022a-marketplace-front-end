@@ -2,25 +2,26 @@ import { useEffect, useState } from 'react'
 //Importar LINK
 import { Link } from "react-router-dom";
 import './App.css'
-// Tipo para produtos
+
+// Tipo para jogos
 type JogoType = {
-  id: number,
+  codigojg: number,
   nome: string,
-  preco: string,
-  descricao: string,
+  preco: number,
+  informacaojg: string,
   imagem: string
 }
 
 
 function App() {
-  const [produtos, setProdutos] = useState<JogoType[]>([])
+  const [jogos, setJogos] = useState<JogoType[]>([])
 
   // useEffect para carregar produtos e usuários
   useEffect(() => {
     // Buscar os produtos
     fetch("http://localhost:8000/jogos")
       .then(resposta => resposta.json())
-      .then(dados => setProdutos(dados))
+      .then(dados => setJogos(dados))
 
   }, [])
 
@@ -34,7 +35,6 @@ function App() {
           <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#produtos">Produtos</a></li>
-            
             <li>
               <Link to="/cadastro-jogos">Cadastro Jogos</Link>  {/**No lugar do "a href" use o componente LINK */}
             </li>
@@ -49,21 +49,22 @@ function App() {
       </header>
       {/* Listagem de Produtos */}
       <div className="produtos-container">
-        <h1 className='titulo-produto'>Produtos</h1>
+        <h1 className='titulo-produto'>Os Melhores Jogos Voce Encontra Aqui </h1>
         <div className="produtos-list">
           {
-            produtos.map(produto => (
-              <div key={produto.id} className="produto-item">
-                <h3 className="produto-nome">{produto.nome}</h3> {/* Use h3 para o nome do produto */}
+            jogos.map(jogos => (
+              <div key={jogos.codigojg} className="produto-item">
+                <h3 className="produto-nome">{jogos.nome}</h3> {/* Use h3 para o nome do produto */}
                 <div className='container-imagem'>
-                  <img src={produto.imagem} alt="Imagem do produto" />
+                  <img src={jogos.imagem} alt="Imagem do produto" />
                 </div>
-                <p className="produto-preco">{produto.preco}</p>
-                <p className="produto-descricao">{produto.descricao}</p>
+                <p className="produto-preco">{jogos.preco}</p>
+                <p className="produto-descricao">{jogos.informacaojg}</p>
                 <button className="botao-comprar">Comprar</button>
               </div>
             ))
           }
+          
         </div>
       </div>
     </>
@@ -71,3 +72,4 @@ function App() {
 }
 
 export default App
+
