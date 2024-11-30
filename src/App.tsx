@@ -59,6 +59,7 @@ function App() {
       </header>
       {/* Listagem de Produtos */}
       <div className="produtos-container">
+      <Link to="/cadastro-produto">Cadastro de Produto</Link>
         <h1 className='titulo-produto'>Produtos</h1>
         <div className="produtos-list">
           {
