@@ -26,7 +26,7 @@ function App() {
   // useEffect para carregar produtos e usuários
   useEffect(() => {
     // Buscar os produtos
-    fetch("http://localhost:8000/produtos")
+    fetch("https://one022a-marketplace-e90o.onrender.com/produtos/produtos")
       .then(resposta => resposta.json())
       .then(dados => setProdutos(dados))
 
