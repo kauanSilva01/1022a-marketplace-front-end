@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
+import { Link } from 'react-router-dom'
 // Tipo para produtos
 type ProdutoType = {
   id: number,
@@ -48,6 +49,7 @@ function App() {
             <li><a href="#produtos">Produtos</a></li>
             <li><a href="#sobre">Sobre</a></li>
             <li><a href="#contato">Contato</a></li>
+            <Link to="/cadastro-produto">Cadastro de Produto</Link>
           </ul>
         </nav>
 
