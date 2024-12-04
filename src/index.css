@@ -1,125 +1,131 @@
 /* Definindo propriedades globais */
 :root {
-  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.6; /* Melhora a legibilidade */
-  font-weight: 400;
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  transition: all 0.3s ease; /* Transições suaves para mudanças de tema */
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #121212; /* Preto */
+  color: #ffffff; /* Branco quase puro */
+  line-height: 1.6;
 }
 
 /* Estilo dos links */
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: none;
-  transition: color 0.3s ease, transform 0.3s ease; /* Transição suave */
+  font-weight: 500; /* Define o peso do texto */
+  color: #646cff; /* Cor padrão dos links */
+  text-decoration: none; /* Remove o sublinhado dos links */
+  transition: color 0.3s ease, transform 0.3s ease; /* Transição suave ao passar o mouse */
 }
 
 a:hover {
   color: #535bf2; /* Cor mais intensa no hover */
-  transform: translateY(-2px); /* Leve efeito de elevação */
+  transform: translateY(-2px); /* Leve efeito de elevação no hover */
 }
 
 a:focus-visible {
-  outline: 2px dashed #646cff; /* Foco visível mais claro */
-  outline-offset: 2px;
+  outline: 2px dashed #646cff; /* Foco visível com borda tracejada */
+  outline-offset: 2px; /* Espaçamento entre o link e a borda */
 }
 
 /* Estilos para o corpo */
 body {
-  margin: 0;
-  padding: 0;
-  font-size: 16px;
-  background-color: #242424;
-  color: rgba(255, 255, 255, 0.87);
-  font-family: 'Inter', sans-serif;
+  margin: 0; /* Remove margens padrão */
+  padding: 0; /* Remove padding padrão */
+  font-size: 16px; /* Tamanho padrão do texto */
+  color: rgba(255, 255, 255, 0.87); /* Cor do texto */
+  font-family: 'Inter', sans-serif; /* Define a fonte principal */
 }
 
 /* Estilo do cabeçalho h1 */
 h1 {
-  font-size: 3.4em; /* Tamanho maior para destacar o título */
-  line-height: 1.2;
-  margin-bottom: 0.5em;
-  color: inherit;
+  font-size: 3.4em; /* Tamanho grande para destaque */
+  line-height: 1.2; /* Reduz o espaçamento entre linhas */
+  margin-bottom: 0.5em; /* Espaço inferior */
+  color: inherit; /* Usa a cor herdada */
   text-align: center; /* Centraliza o título */
-  font-weight: 700; /* Negrito mais forte */
-  letter-spacing: -0.5px; /* Leve ajuste no espaçamento das letras */
+  font-weight: 700; /* Negrito */
+  letter-spacing: -0.5px; /* Leve ajuste no espaçamento entre letras */
 }
 
 /* Estilo do botão */
 button {
   border-radius: 8px; /* Bordas arredondadas */
-  border: 1px solid transparent;
-  padding: 0.8em 1.6em; /* Mais espaçamento para o botão */
-  font-size: 1.1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  color: #ffffff;
-  cursor: pointer;
-  transition: all 0.3s ease; /* Transição suave */
-  display: inline-block;
-  text-align: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adicionando sombra para profundidade */
+  border: 1px solid transparent; /* Borda invisível padrão */
+  padding: 0.8em 1.6em; /* Define espaçamento interno */
+  font-size: 1.1em; /* Tamanho do texto do botão */
+  font-weight: 500; /* Peso do texto */
+  font-family: inherit; /* Herda a fonte */
+  background-color: #1a1a1a; /* Fundo escuro do botão */
+  color: #ffffff; /* Texto branco */
+  cursor: pointer; /* Cursor de mão ao passar o mouse */
+  transition: all 0.3s ease; /* Suaviza animações */
+  display: inline-block; /* Torna o botão inline */
+  text-align: center; /* Centraliza o texto */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adiciona sombra */
 }
 
 button:hover {
   background-color: #333333; /* Fundo mais escuro no hover */
-  border-color: #646cff;
+  border-color: #646cff; /* Adiciona borda colorida */
   transform: translateY(-2px); /* Efeito de elevação no hover */
 }
 
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 4px auto -webkit-focus-ring-color; /* Define o foco do botão */
 }
 
 button:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15); /* Menos sombra quando o botão for pressionado */
+  transform: translateY(0); /* Remove a elevação ao clicar */
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15); /* Reduz a sombra ao pressionar */
 }
 
-/* Estilos para o modo claro */
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547; /* Cor de texto mais escura para o modo claro */
-    background-color: #ffffff; /* Fundo mais claro */
-  }
+/* Centralização do formulário e sombra ao redor */
+form {
+  background-color: #1e1e2f; /* Fundo do formulário */
+  padding: 80px; /* Espaçamento interno */
+  border-radius: 10px; /* Bordas arredondadas */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7); /* Sombra ao redor */
+  width: 525px; /* Largura do formulário */
+  margin: auto; /* Centraliza horizontalmente */
 
-  body {
-    color: #333; /* Texto escuro no modo claro */
-    background-color: #f5f5f5; /* Fundo mais suave */
-  }
+  margin-top: 8.5%;
+}
 
-  h1 {
-    color: #1a1a1a; /* Título escuro */
-  }
+/* Estilo dos inputs */
+form input[type="text"], 
+form input[type="submit"] {
+  width: 100%; /* Largura total */
+  border: 5; /* Remove bordas */
+  border-radius: 5px; /* Bordas arredondadas */
+  outline: none; /* Remove o contorno ao foco */
+  font-size: 1rem; /* Tamanho do texto */
+  padding: 17.5px;
+  width: 500px;
+  margin: 7px;
+}
 
-  a {
-    color: #646cff; /* Cor de link no modo claro */
-  }
+form input[type="text"] {
+  background-color: #2b2b3d; /* Fundo escuro dos inputs */
+  color: #fff; /* Texto branco */
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra interna */
+  transition: box-shadow 0.3s ease; /* Animação de sombra */
+}
 
-  a:hover {
-    color: #747bff; /* Cor de hover mais suave */
-  }
+form input[type="text"]:focus {
+  box-shadow: 0 0 10px rgba(72, 105, 217, 0.8); /* Sombra azul ao focar */
+}
 
-  button {
-    background-color: #f9f9f9; /* Fundo claro para o botão */
-    border: 1px solid #ddd; /* Borda suave no modo claro */
-    color: #333; /* Texto escuro no botão */
-  }
+form input[type="submit"] {
+  background-color: #484e7d; /* Fundo do botão */
+  color: #ffffff; /* Texto branco */
+  cursor: pointer; /* Cursor de mão */
+  font-weight: bold; /* Texto em negrito */
+  text-transform: uppercase; /* Letras maiúsculas */
+  letter-spacing: 1px; /* Espaçamento entre letras */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Animação */
+  
+}
 
-  button:hover {
-    background-color: #e2e2e2; /* Efeito de hover mais suave */
-  }
-
-  button:focus-visible {
-    outline-color: #646cff; /* Cor de foco mais visível */
-  }
+form input[type="submit"]:hover {
+  background-color: #5a63a9; /* Fundo mais claro no hover */
+  transform: translateY(-2px); /* Efeito de elevação */
 }

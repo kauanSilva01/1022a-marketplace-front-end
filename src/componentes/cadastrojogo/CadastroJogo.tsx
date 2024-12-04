@@ -25,12 +25,12 @@ function CadastroJogo(){
                 })
             })
             if(resposta.status!=500){
-                alert("Produto Cadastro com Sucesso")
+                alert("Jogo Cadastro com Sucesso na Pagina Inicial")
                 navigate("/")
             }
             else{
                 const mensagem = await resposta.text()
-                alert("Erro ao Cadastrar Produto - Error: "+mensagem)
+                alert("Erro ao Cadastrar Jogo - Error: "+mensagem)
             }
         }
         catch(e){
@@ -73,7 +73,7 @@ function CadastroJogo(){
                 <div>
                     <input placeholder="URL IMAGEM" type="text" name="imagem" id="imagem" onChange={handleImagem} />
                 </div>
-                <input type="submit" value="CADASTRAR" />
+                <div> <input type="submit" value="CADASTRAR" /> </div>
             </form>
         </>
     )

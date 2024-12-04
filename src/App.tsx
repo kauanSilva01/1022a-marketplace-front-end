@@ -32,12 +32,12 @@ function App() {
         <nav className="navigation">
           <ul>
             <li><a href="#home">Home</a></li>
-            <li><a href="#produtos">Produtos</a></li>
+            <li><a href="#Store">Store</a></li>
             <li>
               <Link to="/cadastro-jogos">Cadastro Jogos</Link> {/* Usando Link no lugar de "a href" */}
             </li>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#contato">Contato</a></li>
+            <li><a href="#sobre">Categorias</a></li>
+            <li><a href="#contato">Support</a></li>
           </ul>
         </nav>
 
@@ -47,18 +47,18 @@ function App() {
       </header>
 
       {/* Listagem de Produtos */}
-      <div className="produtos-container">
-        <h1 className='titulo-produto'>Os Melhores Jogos Você Encontra Aqui</h1>
-        <div className="produtos-list">
+      <div className="jogos-container">
+        <h1 className='jogo-produto'>Os Melhores Jogos Você Encontra Aqui</h1>
+        <div className="jogos-list">
           {
             jogos.map(jogo => (
-              <div key={jogo.codigojg} className="produto-item">
-                <h3 className="produto-nome">{jogo.nome}</h3> {/* Use h3 para o nome do produto */}
+              <div key={jogo.codigojg} className="jogo-item">
+                <h3 className="jogo-nome">{jogo.nome}</h3> {/* Use h3 para o nome do produto */}
                 <div className='container-imagem'>
-                  <img src={jogo.imagem} alt="Imagem do produto" />
+                  <img src={jogo.imagem} alt="Imagem do jogo" />
                 </div>
-                <p className="produto-preco">R$ {jogo.preco}</p>
-                <p className="produto-descricao">{jogo.informacaojg}</p>
+                <p className="jogo-preco">R$ {jogo.preco}</p>
+                <p className="jogo-descricao">{jogo.informacaojg}</p>
                 <button className="botao-comprar">Comprar</button>
               </div>
             ))
