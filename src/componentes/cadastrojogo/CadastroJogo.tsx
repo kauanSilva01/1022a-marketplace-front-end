@@ -56,7 +56,7 @@ function CadastroJogo(){
 
     return(
         <>
-            <h1>Meu Componente de Cadastro de Produtos</h1>
+            <h1>Cadastre Seu Jogo Aqui</h1>
             <form onSubmit={handleForm}>
                 <div>
                     <input placeholder="CODIGO DO JOGO" type="text" name="Codigo" id="Codigo" onChange={handleCodigojg} />

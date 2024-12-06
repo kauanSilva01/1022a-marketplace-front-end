@@ -47,7 +47,7 @@ h1 {
 
 /* Estilo do botão */
 button {
-  border-radius: 8px; /* Bordas arredondadas */
+  border-radius: 55px; /* Bordas arredondadas */
   border: 1px solid transparent; /* Borda invisível padrão */
   padding: 0.8em 1.6em; /* Define espaçamento interno */
   font-size: 1.1em; /* Tamanho do texto do botão */
