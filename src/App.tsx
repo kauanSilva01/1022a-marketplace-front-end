@@ -18,7 +18,7 @@ function App() {
   // useEffect para carregar produtos e usuários
   useEffect(() => {
     // Buscar os produtos
-    fetch("http://localhost:8000/jogos")
+    fetch("https://one022a-marketplace-actm.onrender.com/jogos")
       .then(resposta => resposta.json())
       .then(dados => setJogos(dados))
   }, [])

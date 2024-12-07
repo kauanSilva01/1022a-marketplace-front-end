@@ -10,7 +10,7 @@ function CadastroJogo(){
     async function handleForm(event:FormEvent){
         event.preventDefault()
         try{
-            const resposta = await fetch("http://localhost:8000/jogos",{
+            const resposta = await fetch("https://one022a-marketplace-actm.onrender.com/jogos",{
                 method:"POST",
                 headers:{
                     "Content-Type":"application/json"
