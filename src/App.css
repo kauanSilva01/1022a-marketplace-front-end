@@ -136,28 +136,32 @@ footer a:hover {
 }
 
 .container-imagem img {
-  max-width: 100%;
+  width: 65%; 
   border-radius: 8px;
   margin-bottom: 10px;
+  box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.3); /* Adiciona sombra */
 }
 
 .jogo-nome {
   font-size: 20px;
   margin-bottom: 10px;
-  color: #ffffff; /* Branco */
+  color: #ffffff; 
+  text-transform: uppercase;
 }
 
 .jogo-descricao {
-  font-size: 14px;
-  color: #cccccc; /* Cinza claro */
-  font-size: 1rem; /* Tamanho ajustado */
-  text-align: left;
-  margin-bottom: 15px;
-  line-height: 1.4; /* Espaçamento entre linhas para melhor leitura */
-  overflow-wrap: break-word; /* Permite quebra de palavras longas */
-  word-wrap: break-word; /* Compatibilidade com navegadores antigos */
-  white-space: normal; /* Garante que o texto quebre automaticamente */
+  font-size: 1.1rem; 
+  color: #f5f5f5; 
+  font-family: 'Poppins', sans-serif; 
+  text-align: justify; 
+  margin-bottom: 20px; 
+  line-height: 1.8; 
+  word-break: break-word; 
+  white-space: normal; 
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); 
+  border-radius: 8px; 
 }
+
 .jogo-preco {
   font-size: 16px;
   font-weight: bold;
@@ -165,12 +169,11 @@ footer a:hover {
   margin: 0.5rem 0;
 }
 
-/* Botão Comprar */
 .botao-comprar {
   margin-top: auto;
   width: 100%;
   padding: 0.8rem;
-  background: linear-gradient(45deg, #1c1c1c, #b4ff06); /* Preto para Laranja */
+  background: linear-gradient(45deg, #1c1c1c, #b4ff06); 
   color: #fff;
   font-weight: bold;
   border: none;
@@ -181,10 +184,10 @@ footer a:hover {
 
 .botao-comprar:hover {
   transform: scale(1.1);
-  box-shadow: 0 5px 15px rgb(255, 255, 255); /* Sombra branca */
+  box-shadow: 0 5px 15px rgb(255, 255, 255); 
 }
 
-/* Responsividade */
+
 @media (max-width: 768px) {
   .jogos-list {
       flex-direction: column;
