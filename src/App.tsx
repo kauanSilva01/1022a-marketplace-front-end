@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 import './App.css'
 
-
 // Tipo para jogos
 type JogoType = {
   codigojg: number,
@@ -39,11 +38,6 @@ function App() {
             </li>
             <li><a href="#sobre">Categorias</a></li>
             <li><a href="#contato">Support</a></li>
-            <li><a href="#produtos">Produtos</a></li>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#contato">Contato</a></li>
-            <Link to="/cadastro-produto">Cadastro de Produto</Link>
-
           </ul>
         </nav>
 
