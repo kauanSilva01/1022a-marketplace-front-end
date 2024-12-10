@@ -63,7 +63,7 @@ function App() {
   };
 
   // Função para exibir mensagem ao comprar jogo
-  const handleComprar = (jogoNome: string) => {
+  const handleCompraar = (jogoNome: string) => {
     setMensagem(`Jogo "${jogoNome}" comprado com sucesso!`);
     setTimeout(() => setMensagem(null), 3000); // Limpa a mensagem após 3 segundos
   }
