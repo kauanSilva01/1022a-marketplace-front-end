@@ -1,5 +1,3 @@
-
-
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import './App.css';
@@ -23,10 +21,9 @@ function App() {
   const [jogos, setJogos] = useState<JogoType[]>([]);
   const [mensagem, setMensagem] = useState<string | null>(null);
   const [usuario, setUsuario] = useState<string | null>(null); // Estado para o nome do usuário
-  const [usuarios, setUsuarios] = useState<UsuariosType[]>([]); // Estado para listar os usuários
   const navigate = useNavigate();
 
-  // useEffect para carregar produtos, verificar usuário logado e carregar a lista de usuários
+  // useEffect para carregar produtos e verificar usuário logado
   useEffect(() => {
     // Buscar os produtos
     fetch("https://one022a-marketplace-actm.onrender.com/jogos")
@@ -38,15 +35,6 @@ function App() {
     if (usuarioLogado) {
       setUsuario(usuarioLogado); // Se o usuário estiver logado, mostra o nome
     }
-
-    // Simulação de uma lista de usuários (email e senha)
-    // Em um caso real, você faria uma requisição para buscar os usuários de um banco de dados.
-    const listaUsuarios: UsuariosType[] = [
-      { email: "usuario1@example.com", senha: "senha123" },
-      { email: "usuario2@example.com", senha: "senha456" },
-      { email: "usuario3@example.com", senha: "senha789" },
-    ];
-    setUsuarios(listaUsuarios); // Atualiza a lista de usuários
   }, []);
 
   // Função para exibir mensagem ao comprar jogo
@@ -61,12 +49,6 @@ function App() {
     setUsuario(null); // Atualiza o estado
     navigate("/cadastro-login"); // Redireciona para a página de login
   };
-
-  // Função para exibir mensagem ao comprar jogo
-  const handleCompraar = (jogoNome: string) => {
-    setMensagem(`Jogo "${jogoNome}" comprado com sucesso!`);
-    setTimeout(() => setMensagem(null), 3000); // Limpa a mensagem após 3 segundos
-  }
 
   return (
     <>
@@ -111,13 +93,13 @@ function App() {
         </div>
         <div className="banner-item">
           <img
-            src="https://prod.liveshare.vsengsaas.visualstudio.com/join?7C3F6DE41F9B005C3A048D2733BA24688530"
+            src="https://th.bing.com/th/id/OIP.5Tq9mB7mRq84jds2c1y21wHaDq?rs=1&pid=ImgDetMain"
             alt="Banner Nintendo Switch"
           />
         </div>
         <div className="banner-item">
           <img
-            src="https://cdn1.epicgames.com/b30b6d1b4dfd4dcc93b5490be5e094e5/offer/RDR2476298253_Epic_Games_Wishlist_RDR2_2560x1440_V01-2560x1440-2a9ebe1f7ee202102555be202d5632ec.jpg"
+            src="https://th.bing.com/th/id/R.ab0710019c6b488f0eeecd6213a5cb5d?rik=1D3LJWIRVRiHdQ&pid=ImgRaw&r=0"
             alt="Banner Red Dead Redemption 2"
           />
         </div>
@@ -152,19 +134,6 @@ function App() {
             </div>
           ))}
         </div>
-      </div>
-
-      {/* Listagem de Usuários (Email e Senha) */}
-      <div className="usuarios-list">
-        <h2>Lista de Usuários</h2>
-        <ul>
-          {usuarios.map((usuario, index) => (
-            <li key={index}>
-              <p>Email: {usuario.email}</p>
-              <p>Senha: {usuario.senha}</p>
-            </li>
-          ))}
-        </ul>
       </div>
 
       {/* Rodapé */}
