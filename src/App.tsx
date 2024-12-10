@@ -62,6 +62,12 @@ function App() {
     navigate("/cadastro-login"); // Redireciona para a página de login
   };
 
+  // Função para exibir mensagem ao comprar jogo
+  const handleComprar = (jogoNome: string) => {
+    setMensagem(`Jogo "${jogoNome}" comprado com sucesso!`);
+    setTimeout(() => setMensagem(null), 3000); // Limpa a mensagem após 3 segundos
+  }
+
   return (
     <>
       <header className="site-header">
@@ -174,4 +180,3 @@ function App() {
 }
 
 export default App;
-
