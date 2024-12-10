@@ -1,131 +1,239 @@
-/* Definindo propriedades globais */
+/* Reset e propriedades globais */
 :root {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   background-color: #121212; /* Preto */
-  color: #ffffff; /* Branco quase puro */
+  color: #ffffff; /* Branco */
   line-height: 1.6;
 }
 
-/* Estilo dos links */
-a {
-  font-weight: 500; /* Define o peso do texto */
-  color: #646cff; /* Cor padrão dos links */
-  text-decoration: none; /* Remove o sublinhado dos links */
-  transition: color 0.3s ease, transform 0.3s ease; /* Transição suave ao passar o mouse */
-}
-
-a:hover {
-  color: #535bf2; /* Cor mais intensa no hover */
-  transform: translateY(-2px); /* Leve efeito de elevação no hover */
-}
-
-a:focus-visible {
-  outline: 2px dashed #646cff; /* Foco visível com borda tracejada */
-  outline-offset: 2px; /* Espaçamento entre o link e a borda */
-}
-
-/* Estilos para o corpo */
 body {
-  margin: 0; /* Remove margens padrão */
-  padding: 0; /* Remove padding padrão */
-  font-size: 16px; /* Tamanho padrão do texto */
-  color: rgba(255, 255, 255, 0.87); /* Cor do texto */
-  font-family: 'Inter', sans-serif; /* Define a fonte principal */
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  color: rgba(255, 255, 255, 0.87);
 }
 
-/* Estilo do cabeçalho h1 */
-h1 {
-  font-size: 3.4em; /* Tamanho grande para destaque */
-  line-height: 1.2; /* Reduz o espaçamento entre linhas */
-  margin-bottom: 0.5em; /* Espaço inferior */
-  color: inherit; /* Usa a cor herdada */
-  text-align: center; /* Centraliza o título */
-  font-weight: 700; /* Negrito */
-  letter-spacing: -0.5px; /* Leve ajuste no espaçamento entre letras */
-}
-
-/* Estilo do botão */
-button {
-  border-radius: 55px; /* Bordas arredondadas */
-  border: 1px solid transparent; /* Borda invisível padrão */
-  padding: 0.8em 1.6em; /* Define espaçamento interno */
-  font-size: 1.1em; /* Tamanho do texto do botão */
-  font-weight: 500; /* Peso do texto */
-  font-family: inherit; /* Herda a fonte */
-  background-color: #1a1a1a; /* Fundo escuro do botão */
-  color: #ffffff; /* Texto branco */
-  cursor: pointer; /* Cursor de mão ao passar o mouse */
-  transition: all 0.3s ease; /* Suaviza animações */
-  display: inline-block; /* Torna o botão inline */
-  text-align: center; /* Centraliza o texto */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adiciona sombra */
-}
-
-button:hover {
-  background-color: #333333; /* Fundo mais escuro no hover */
-  border-color: #646cff; /* Adiciona borda colorida */
-  transform: translateY(-2px); /* Efeito de elevação no hover */
-}
-
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color; /* Define o foco do botão */
-}
-
-button:active {
-  transform: translateY(0); /* Remove a elevação ao clicar */
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15); /* Reduz a sombra ao pressionar */
-}
-
-/* Centralização do formulário e sombra ao redor */
-form {
-  background-color: #1e1e2f; /* Fundo do formulário */
-  padding: 80px; /* Espaçamento interno */
+/* Cabeçalho */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #1c1c1c; /* Cinza escuro */
+  border: 2px solid #ffffff; /* Borda branca */
   border-radius: 10px; /* Bordas arredondadas */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7); /* Sombra ao redor */
-  width: 525px; /* Largura do formulário */
-  margin: auto; /* Centraliza horizontalmente */
-
-  margin-top: 8.5%;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2), 0 4px 8px rgba(0, 0, 0, 0.5);
+  transition: border-color 0.3s, box-shadow 0.3s;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
-/* Estilo dos inputs */
+.site-header:hover {
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.5), 0 6px 12px rgba(0, 0, 0, 0.7);
+  border-color: #ffffff;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.navigation ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation a {
+  color: #cccccc;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.navigation a:hover {
+  color: #ffffff;
+  background-color: #333333;
+}
+
+/* Botão Login */
+.header-actions .login-button {
+  background: linear-gradient(45deg, #1c1c1c, #ffffff);
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.header-actions .login-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
+}
+
+/* Estilo do título principal */
+h1 {
+  font-size: 3.4em;
+  text-align: center;
+  font-weight: bolder;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+/* Formulário */
+form {
+
+  padding: 55px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+  width: 500px;
+  margin: 50px auto;
+}
+
 form input[type="text"], 
 form input[type="submit"] {
-  width: 100%; /* Largura total */
-  border: 5; /* Remove bordas */
-  border-radius: 5px; /* Bordas arredondadas */
-  outline: none; /* Remove o contorno ao foco */
-  font-size: 1rem; /* Tamanho do texto */
-  padding: 17.5px;
-  width: 500px;
-  margin: 7px;
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  font-size: 1rem;
+  border: none;
+  border-radius:25px;
 }
 
 form input[type="text"] {
-  background-color: #2b2b3d; /* Fundo escuro dos inputs */
-  color: #fff; /* Texto branco */
-  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra interna */
-  transition: box-shadow 0.3s ease; /* Animação de sombra */
+  background-color: #2b2b3d;
+  color: #ffffff;
+  box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.3);
 }
 
 form input[type="text"]:focus {
-  box-shadow: 0 0 10px rgba(72, 105, 217, 0.8); /* Sombra azul ao focar */
+  outline: none;
+  box-shadow: 0 0 10px rgba(72, 105, 217, 0.8);
 }
 
 form input[type="submit"] {
-  background-color: #484e7d; /* Fundo do botão */
-  color: #ffffff; /* Texto branco */
-  cursor: pointer; /* Cursor de mão */
-  font-weight: bold; /* Texto em negrito */
-  text-transform: uppercase; /* Letras maiúsculas */
-  letter-spacing: 1px; /* Espaçamento entre letras */
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Animação */
-  
+  background-color: #31323a;
+  color: #ffffff;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 form input[type="submit"]:hover {
-  background-color: #5a63a9; /* Fundo mais claro no hover */
-  transform: translateY(-2px); /* Efeito de elevação */
+  background-color: #9396ac;
+  transform: translateY(-2px);
+}
+
+/* Centralização da imagem */
+.image-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+.mensagem-compra {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #363d36;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+  z-index: 1000;
+}
+
+/* Botão Voltar */
+.header-actions .back-button {
+  background: linear-gradient(45deg, #ffffff, #1c1c1c);
+  border: 1px solid #ffffff;
+  color: #1c1c1c;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.header-actions .back-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.error-message {
+  background-color: #ff4d4d; /* Fundo vermelho */
+  color: #ffffff; /* Texto branco */
+  padding: 10px 15px;
+  margin: 10px 0;
+  border-radius: 5px;
+  font-size: 14px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  animation: fadeout 8s forwards; /* Animação de desaparecimento */
+}
+
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Container geral */
+.container-login {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Styling for small screens (responsive design) */
+@media (max-width: 768px) {
+  .site-header {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .navigation ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .form-container-dono {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .error-message {
+    width: 100%;
+  }
 }
