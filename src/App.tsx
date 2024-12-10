@@ -12,10 +12,6 @@ type JogoType = {
 };
 
 // Tipo para usuários (apenas email e senha)
-type UsuariosType = {
-  email: string;
-  senha: string;
-};
 
 function App() {
   const [jogos, setJogos] = useState<JogoType[]>([]);
