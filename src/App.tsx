@@ -36,6 +36,10 @@ function App() {
       .then(dados => setUsuarios(dados))
   }, [])
 
+  function handleExcluir(id:number){
+    alert('Excluir o produto com id ${id})
+  }
+
   return (
     <>
 
