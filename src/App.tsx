@@ -36,6 +36,9 @@ function App() {
       .then(dados => setUsuarios(dados))
   }, [])
 
+  function handleExcluir(){
+  }
+
   return (
     <>
 
@@ -72,7 +75,7 @@ function App() {
                 <p className="produto-preco">{produto.preco}</p>
                 <p className="produto-descricao">{produto.descricao}</p>
                 <button className="botao-comprar">Comprar</button>
-                <button className="botao-comprar">Excluir</button>
+                <button className="botao-comprar" onClick={handleExcluir}>Excluir</button>
                 <Link to="">Alterar</Link>
               </div>
             ))
