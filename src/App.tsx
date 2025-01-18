@@ -36,7 +36,11 @@ function App() {
       .then(dados => setUsuarios(dados))
   }, [])
 
-  function handleExcluir(){
+  function handleExcluir(id:number){
+    alert(`Excluir o produto com id ${id}`)
+    fetch(`http://localhost:8000/produtos/${id}`, {
+      method: 'DELETE'
+    })
   }
 
   return (
@@ -75,7 +79,7 @@ function App() {
                 <p className="produto-preco">{produto.preco}</p>
                 <p className="produto-descricao">{produto.descricao}</p>
                 <button className="botao-comprar">Comprar</button>
-                <button className="botao-comprar" onClick={handleExcluir}>Excluir</button>
+                <button onClick={() => handleExcluir(produto.id)}>Excluir</button>
                 <Link to="">Alterar</Link>
               </div>
             ))
