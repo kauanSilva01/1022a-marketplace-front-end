@@ -26,12 +26,12 @@ function App() {
   // useEffect para carregar produtos e usuários
   useEffect(() => {
     // Buscar os produtos
-    fetch("https://one022a-marketplace-e90o.onrender.com/produtos")
+    fetch("http://localhost:8000/produtos")
       .then(resposta => resposta.json())
       .then(dados => setProdutos(dados))
 
     // Buscar os usuários
-    fetch("https://one022a-marketplace-e90o.onrender.com/usuarios")
+    fetch("http://localhost:8000/produtos")
       .then(resposta => resposta.json())
       .then(dados => setUsuarios(dados))
   }, [])
@@ -72,6 +72,8 @@ function App() {
                 <p className="produto-preco">{produto.preco}</p>
                 <p className="produto-descricao">{produto.descricao}</p>
                 <button className="botao-comprar">Comprar</button>
+                <button className="botao-comprar">Excluir</button>
+                <Link to="">Alterar</Link>
               </div>
             ))
           }
