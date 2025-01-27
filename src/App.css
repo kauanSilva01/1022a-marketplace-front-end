@@ -302,7 +302,41 @@ footer a:hover {
   max-width: 100%;
   border-radius: 8px;
   margin-bottom: 10px;
-  box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.3); /* Adiciona sombra */
+  box-shadow: 5px 5px 15px rgba(255, 0, 0, 0.3); /* Adiciona sombra */
+}
+.botoes-acoes {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.botao-alterar, .botao-excluir {
+  padding: 0.8rem;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.botao-alterar {
+  background: linear-gradient(45deg, #1c1c1c, #00bcd4); /* Preto para Azul */
+}
+
+.botao-alterar:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(0, 188, 212, 0.5);
+}
+
+.botao-excluir {
+  background: linear-gradient(45deg, #1c1c1c, #ff5722); /* Preto para Vermelho */
+}
+
+.botao-excluir:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(255, 87, 34, 0.5);
 }
 
 .jogo-nome {
