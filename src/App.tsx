@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from 'react'; // Importando useState e useEffect de react
+import { Link, useNavigate } from "react-router-dom"; // Importando Link e useNavigate de react-router-dom
 import './App.css';
 
 // Tipo para jogos
@@ -12,13 +12,13 @@ type JogoType = {
 };
 
 function App() {
-  const [jogos, setJogos] = useState<JogoType[]>([]);
-  const [mensagem, setMensagem] = useState<string | null>(null);
+  const [jogos, setJogos] = useState<JogoType[]>([]); // Estado para armazenar os jogos
+  const [mensagem, setMensagem] = useState<string | null>(null); // Estado para a mensagem de compra
   const [usuario, setUsuario] = useState<string | null>(null); // Estado para o nome do usuário
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Hook para navegação entre páginas
 
   useEffect(() => {
-    // Buscar os produtos
+    // Buscar os jogos da API
     fetch("https://one022a-marketplace-actm.onrender.com/jogos")
       .then((resposta) => resposta.json())
       .then((dados) => setJogos(dados));
@@ -28,7 +28,7 @@ function App() {
     if (usuarioLogado) {
       setUsuario(usuarioLogado);
     }
-  }, []);
+  }, []); // A dependência vazia [] significa que o useEffect será executado apenas uma vez
 
   const handleComprar = (jogoNome: string) => {
     setMensagem(`Jogo "${jogoNome}" comprado com sucesso!`);
@@ -36,22 +36,26 @@ function App() {
   };
 
   const handleEditar = (codigojg: number) => {
-    alert(`Editar jogo com código: ${codigojg}`);
-    // Adicione a lógica de edição aqui, como redirecionar para outra página com formulário de edição
+    // Aqui redirecionamos para a página de alteração
+    navigate(`/alterar-jogos/${codigojg}`);
   };
-
+  
   const handleExcluir = (codigojg: number) => {
     if (window.confirm("Tem certeza de que deseja excluir este jogo?")) {
       fetch(`https://one022a-marketplace-actm.onrender.com/jogos/${codigojg}`, {
         method: "DELETE",
       })
-        .then(() => {
-          setJogos(jogos.filter((jogo) => jogo.codigojg !== codigojg));
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("Erro ao excluir o jogo");
+          }
+          setJogos((prevJogos) => prevJogos.filter((jogo) => jogo.codigojg !== codigojg));
           alert("Jogo excluído com sucesso!");
         })
-        .catch((erro) => alert("Erro ao excluir o jogo: " + erro));
+        .catch((erro) => alert("Erro ao excluir o jogo: " + erro.message));
     }
   };
+  
 
   const handleLogout = () => {
     localStorage.removeItem("usuario");
