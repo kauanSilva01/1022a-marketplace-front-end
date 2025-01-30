@@ -1,7 +1,7 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App.tsx';
+import './index.css';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -11,7 +11,7 @@ import CadastroLogin from './componentes/cadastrojogo/cadastrologin.tsx';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>,
+    element: <App />,
   },
   {
     path: "/cadastro-jogos",
