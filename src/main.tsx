@@ -25,7 +25,7 @@ const router = createBrowserRouter([
     element: <CadastroLogin />,
   },
   {
-    path: "/alterar-jogo/:codigojg",
+    path: "/alterar-jogos/:codigojg",
     element: <AlterarJogo />,
   },
 ]);
