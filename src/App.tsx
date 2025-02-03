@@ -1,5 +1,7 @@
-import { useEffect, useState } from 'react'; // Importando useState e useEffect de react
-import { Link, useNavigate } from "react-router-dom"; // Importando Link e useNavigate de react-router-dom
+
+
+import { useEffect, useState } from 'react';
+import { Link, useNavigate } from "react-router-dom";
 import './App.css';
 
 // Tipo para jogos
@@ -11,57 +13,60 @@ type JogoType = {
   imagem: string;
 };
 
-function App() {
-  const [jogos, setJogos] = useState<JogoType[]>([]); // Estado para armazenar os jogos
-  const [mensagem, setMensagem] = useState<string | null>(null); // Estado para a mensagem de compra
-  const [usuario, setUsuario] = useState<string | null>(null); // Estado para o nome do usuário
-  const navigate = useNavigate(); // Hook para navegação entre páginas
+// Tipo para usuários (apenas email e senha)
+type UsuariosType = {
+  email: string;
+  senha: string;
+};
 
+function App() {
+  const [jogos, setJogos] = useState<JogoType[]>([]);
+  const [mensagem, setMensagem] = useState<string | null>(null);
+  const [usuario, setUsuario] = useState<string | null>(null); // Estado para o nome do usuário
+  const [usuarios, setUsuarios] = useState<UsuariosType[]>([]); // Estado para listar os usuários
+  const navigate = useNavigate();
+
+  // useEffect para carregar produtos, verificar usuário logado e carregar a lista de usuários
   useEffect(() => {
-    // Buscar os jogos da API
+    // Buscar os produtos
     fetch("https://one022a-marketplace-actm.onrender.com/jogos")
       .then((resposta) => resposta.json())
       .then((dados) => setJogos(dados));
 
     // Verificar se o nome do usuário está salvo no localStorage
-    const usuarioLogado = localStorage.getItem("usuario");
+    const usuarioLogado = localStorage.getItem("usuario"); // Aqui você pode usar um token ou outra forma de identificar
     if (usuarioLogado) {
-      setUsuario(usuarioLogado);
+      setUsuario(usuarioLogado); // Se o usuário estiver logado, mostra o nome
     }
-  }, []); // A dependência vazia [] significa que o useEffect será executado apenas uma vez
 
+    // Simulação de uma lista de usuários (email e senha)
+    // Em um caso real, você faria uma requisição para buscar os usuários de um banco de dados.
+    const listaUsuarios: UsuariosType[] = [
+      { email: "usuario1@example.com", senha: "senha123" },
+      { email: "usuario2@example.com", senha: "senha456" },
+      { email: "usuario3@example.com", senha: "senha789" },
+    ];
+    setUsuarios(listaUsuarios); // Atualiza a lista de usuários
+  }, []);
+
+  // Função para exibir mensagem ao comprar jogo
   const handleComprar = (jogoNome: string) => {
     setMensagem(`Jogo "${jogoNome}" comprado com sucesso!`);
-    setTimeout(() => setMensagem(null), 3000);
+    setTimeout(() => setMensagem(null), 3000); // Limpa a mensagem após 3 segundos
   };
 
-  const handleEditar = (codigojg: number) => {
-    // Aqui redirecionamos para a página de alteração
-    navigate(`/alterar-jogos/${codigojg}`);
-  };
-  
-  const handleExcluir = (codigojg: number) => {
-    if (window.confirm("Tem certeza de que deseja excluir este jogo?")) {
-      fetch(`https://one022a-marketplace-actm.onrender.com/jogos/${codigojg}`, {
-        method: "DELETE",
-      })
-        .then((res) => {
-          if (!res.ok) {
-            throw new Error("Erro ao excluir o jogo");
-          }
-          setJogos((prevJogos) => prevJogos.filter((jogo) => jogo.codigojg !== codigojg));
-          alert("Jogo excluído com sucesso!");
-        })
-        .catch((erro) => alert("Erro ao excluir o jogo: " + erro.message));
-    }
-  };
-  
-
+  // Função para fazer o logout
   const handleLogout = () => {
-    localStorage.removeItem("usuario");
-    setUsuario(null);
-    navigate("/cadastro-login");
+    localStorage.removeItem("usuario"); // Remove o nome do usuário (simula logout)
+    setUsuario(null); // Atualiza o estado
+    navigate("/cadastro-login"); // Redireciona para a página de login
   };
+
+  // Função para exibir mensagem ao comprar jogo
+  const handleCompraar = (jogoNome: string) => {
+    setMensagem(`Jogo "${jogoNome}" comprado com sucesso!`);
+    setTimeout(() => setMensagem(null), 3000); // Limpa a mensagem após 3 segundos
+  }
 
   return (
     <>
@@ -82,6 +87,7 @@ function App() {
         </nav>
 
         <div className="header-actions">
+          {/* Mostrar nome do usuário se ele estiver logado, caso contrário mostrar link de login */}
           {usuario ? (
             <div className="usuario-info">
               <span>Bem-vindo, {usuario}!</span>
@@ -95,6 +101,7 @@ function App() {
         </div>
       </header>
 
+      {/* Seção de Banners */}
       <div className="banners-container">
         <div className="banner-item">
           <img
@@ -104,20 +111,22 @@ function App() {
         </div>
         <div className="banner-item">
           <img
-            src="https://th.bing.com/th/id/OIP.5Tq9mB7mRq84jds2c1y21wHaDq?rs=1&pid=ImgDetMain"
+            src="https://prod.liveshare.vsengsaas.visualstudio.com/join?7C3F6DE41F9B005C3A048D2733BA24688530"
             alt="Banner Nintendo Switch"
           />
         </div>
         <div className="banner-item">
           <img
-            src="https://th.bing.com/th/id/R.ab0710019c6b488f0eeecd6213a5cb5d?rik=1D3LJWIRVRiHdQ&pid=ImgRaw&r=0"
+            src="https://cdn1.epicgames.com/b30b6d1b4dfd4dcc93b5490be5e094e5/offer/RDR2476298253_Epic_Games_Wishlist_RDR2_2560x1440_V01-2560x1440-2a9ebe1f7ee202102555be202d5632ec.jpg"
             alt="Banner Red Dead Redemption 2"
           />
         </div>
       </div>
 
+      {/* Mensagem de compra */}
       {mensagem && <div className="mensagem-compra">{mensagem}</div>}
 
+      {/* Listagem de Produtos */}
       <div className="jogos-container">
         <h1 className="jogo-produto">Os Melhores Jogos Você Encontra Aqui</h1>
         <div className="jogos-list">
@@ -128,25 +137,42 @@ function App() {
                 <img src={jogo.imagem} alt="Imagem do jogo" />
               </div>
               <p className="jogo-descricao">{jogo.informacaojg}</p>
+
+              {/* Valor abaixo da descrição */}
               <p className="jogo-preco">R$ {jogo.preco}</p>
+
               <button className="botao-comprar" onClick={() => handleComprar(jogo.nome)}>
                 Comprar
               </button>
-              <button className="botao-alterar" onClick={() => handleEditar(jogo.codigojg)}>
-                Alterar
-              </button>
-              <button className="botao-excluir" onClick={() => handleExcluir(jogo.codigojg)}>
-                Excluir
-              </button>
+
+              {/* Estrelas abaixo do botão de compra */}
+              <div className="estrelas">
+                <span>⭐⭐⭐⭐⭐</span>
+              </div>
             </div>
           ))}
         </div>
       </div>
 
+      {/* Listagem de Usuários (Email e Senha) */}
+      <div className="usuarios-list">
+        <h2>Lista de Usuários</h2>
+        <ul>
+          {usuarios.map((usuario, index) => (
+            <li key={index}>
+              <p>Email: {usuario.email}</p>
+              <p>Senha: {usuario.senha}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Rodapé */}
       <footer>
         <p>&copy; 2024 GameZone. Todos os direitos reservados.</p>
         <p>
-          <a href="#politica">Política de Privacidade</a> | <a href="#termos">Termos de Serviço</a>
+          <a href="#termos">Termos de Serviço</a> | 
+          <a href="#privacidade">Política de Privacidade</a>
         </p>
       </footer>
     </>
