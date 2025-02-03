@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import CadastroJogo from './componentes/cadastrojogo/CadastroJogo.tsx';
 import CadastroLogin from './componentes/cadastrojogo/cadastrologin.tsx';
-import Jogo from './componentes/alterarjogo.tsx';
+import AlterarJogo from './componentes/alterarjogo.tsx';
 
 const router = createBrowserRouter([
   {
@@ -24,8 +24,8 @@ const router = createBrowserRouter([
     element: <CadastroLogin />,
   },
   {
-    path: "/alterar-jogos/:codigojg",
-    element: <Jogo />,
+    path: "/alterar-jogo/:codigojg",
+    element: <AlterarJogo />,
   },
 ]);
 

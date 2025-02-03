@@ -7,7 +7,7 @@ function AlterarJogo() {
   const navigate = useNavigate();
 
   const [nome, setNome] = useState("");
-  const [descricao, setDescricao] = useState("");
+  const [informacaojg, setInformacaojg] = useState("");
   const [preco, setPreco] = useState("");
   const [imagem, setImagem] = useState("");
 
@@ -16,12 +16,12 @@ function AlterarJogo() {
       .then((resposta) => resposta.json())
       .then((dados) => {
         setNome(dados.nome);
-        setDescricao(dados.descricao);
+        setInformacaojg(dados.informacaojogo);
         setPreco(dados.preco);
         setImagem(dados.imagem);
       })
-      .catch((erro) => {
-        alert("Erro ao buscar dados do jogo.");
+      .catch((e) => {
+        alert("Erro ao buscar dados do jogo."+e);
       });
   }, [codigojg]);
 
@@ -35,7 +35,7 @@ function AlterarJogo() {
         },
         body: JSON.stringify({
           nome: nome,
-          descricao: descricao,
+          informacaojg: informacaojg,
           preco: preco,
           imagem: imagem,
         }),
@@ -57,8 +57,8 @@ function AlterarJogo() {
     setNome(event.target.value);
   }
 
-  function handleDescricao(event: ChangeEvent<HTMLInputElement>) {
-    setDescricao(event.target.value);
+  function handleInformacaojg(event: ChangeEvent<HTMLInputElement>) {
+    setInformacaojg(event.target.value);
   }
 
   function handlePreco(event: ChangeEvent<HTMLInputElement>) {
@@ -82,8 +82,8 @@ function AlterarJogo() {
           <input placeholder="Nome" type="text" name="nome" id="nome" value={nome} onChange={handleNome} />
         </div>
         <div>
-          <label htmlFor="descricao">Descrição</label>
-          <input placeholder="Descrição" type="text" name="descricao" id="descricao" value={descricao} onChange={handleDescricao} />
+          <label htmlFor="informacaojg">Descrição</label>
+          <input placeholder="Informacaojg" type="text" name="informacaojg" id="informacaojg" value={informacaojg} onChange={handleInformacaojg} />
         </div>
         <div>
           <label htmlFor="preco">Preço</label>
