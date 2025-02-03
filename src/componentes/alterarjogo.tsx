@@ -2,14 +2,17 @@ import { useParams } from "react-router-dom";
 import { ChangeEvent, FormEvent, useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 
+
 function AlterarJogo() {
   const { codigojg } = useParams();
   const navigate = useNavigate();
+
 
   const [nome, setNome] = useState("");
   const [informacaojg, setInformacaojg] = useState("");
   const [preco, setPreco] = useState("");
   const [imagem, setImagem] = useState("");
+
 
   useEffect(() => {
     fetch(`https://one022a-marketplace-actm.onrender.com/jogos/${codigojg}`)
@@ -24,6 +27,7 @@ function AlterarJogo() {
         alert("Erro ao buscar dados do jogo."+e);
       });
   }, [codigojg]);
+
 
   async function handleForm(event: FormEvent) {
     event.preventDefault();
@@ -41,6 +45,7 @@ function AlterarJogo() {
         }),
       });
 
+
       if (resposta.status !== 500) {
         alert("Jogo alterado com sucesso!");
         navigate("/");
@@ -53,21 +58,26 @@ function AlterarJogo() {
     }
   }
 
+
   function handleNome(event: ChangeEvent<HTMLInputElement>) {
     setNome(event.target.value);
   }
+
 
   function handleInformacaojg(event: ChangeEvent<HTMLInputElement>) {
     setInformacaojg(event.target.value);
   }
 
+
   function handlePreco(event: ChangeEvent<HTMLInputElement>) {
     setPreco(event.target.value);
   }
 
+
   function handleImagem(event: ChangeEvent<HTMLInputElement>) {
     setImagem(event.target.value);
   }
+
 
   return (
     <>
@@ -101,5 +111,6 @@ function AlterarJogo() {
     </>
   );
 }
+
 
 export default AlterarJogo;
