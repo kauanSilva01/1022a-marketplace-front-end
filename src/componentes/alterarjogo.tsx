@@ -5,28 +5,23 @@ import { useNavigate } from 'react-router-dom';
 
 function AlterarJogo() {
   const { codigojg } = useParams();
-  const navigate = useNavigate();
-
-
-  const [nome, setNome] = useState("");
-  const [informacaojg, setInformacaojg] = useState("");
-  const [preco, setPreco] = useState("");
-  const [imagem, setImagem] = useState("");
-
 
   useEffect(() => {
     fetch(`https://one022a-marketplace-actm.onrender.com/jogos/${codigojg}`)
       .then((resposta) => resposta.json())
-      .then((dados) => {
+      .then(dados=> {
         setNome(dados.nome);
         setInformacaojg(dados.informacaojogo);
-        setPreco(dados.preco);
         setImagem(dados.imagem);
+        setPreco(dados.preco);
       })
-      .catch((e) => {
-        alert("Erro ao buscar dados do jogo."+e);
-      });
-  }, [codigojg]);
+  }, [])
+
+  const navigate = useNavigate();
+  const [nome, setNome] = useState("");
+  const [informacaojg, setInformacaojg] = useState("");
+  const [imagem, setImagem] = useState("");
+  const [preco, setPreco] = useState("");
 
 
   async function handleForm(event: FormEvent) {
@@ -40,18 +35,16 @@ function AlterarJogo() {
         body: JSON.stringify({
           nome: nome,
           informacaojg: informacaojg,
-          preco: preco,
           imagem: imagem,
-        }),
-      });
-
-
+          preco: preco
+        })
+      })
       if (resposta.status !== 500) {
-        alert("Jogo alterado com sucesso!");
-        navigate("/");
+        alert("Jogo alterado com sucesso!")
+        navigate("/")
       } else {
-        const mensagem = await resposta.text();
-        alert("Erro ao alterar jogo - Error: " + mensagem);
+        const mensagem = await resposta.text()
+        alert("Erro ao alterar jogo - Error: " + mensagem)
       }
     } catch (e) {
       alert("Servidor não está respondendo.");
@@ -84,7 +77,7 @@ function AlterarJogo() {
       <h1>Alterar Jogo</h1>
       <form onSubmit={handleForm}>
         <div>
-          <label htmlFor="id">Id</label>
+          <label htmlFor="codigojg">Id</label>
           <input placeholder="codigojg" type="text" name="id" id="id" value={codigojg} readOnly />
         </div>
         <div>
