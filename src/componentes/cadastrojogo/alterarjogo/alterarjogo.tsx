@@ -51,7 +51,6 @@ function AlterarJogo() {
     }
   }
 
-
   function handleNome(event: ChangeEvent<HTMLInputElement>) {
     setNome(event.target.value);
   }
@@ -77,19 +76,19 @@ function AlterarJogo() {
       <h1>Alterar Jogo</h1>
       <form onSubmit={handleForm}>
         <div>
-          <label htmlFor="codigojg">Id</label>
+          <label htmlFor="codigojg">Codigo do Jogo</label>
           <input placeholder="codigojg" type="text" name="id" id="id" value={codigojg} readOnly />
         </div>
         <div>
-          <label htmlFor="nome">Nome</label>
-          <input placeholder="Nome" type="text" name="nome" id="nome" value={nome} onChange={handleNome} />
+          <label htmlFor="nome">Nome do Jogo</label>
+          <input placeholder="Nome do Jogo" type="text" name="nome" id="nome" value={nome} onChange={handleNome} />
         </div>
         <div>
-          <label htmlFor="informacaojg">Descrição</label>
-          <input placeholder="Informacaojg" type="text" name="informacaojg" id="informacaojg" value={informacaojg} onChange={handleInformacaojg} />
+          <label htmlFor="informacaojg">Avaliação do jogo</label>
+          <input placeholder="Avaliação do jogo" type="text" name="" id="informacaojg" value={informacaojg} onChange={handleInformacaojg} />
         </div>
         <div>
-          <label htmlFor="preco">Preço</label>
+          <label htmlFor="preco">Valor</label>
           <input placeholder="Preço" type="text" name="preco" id="preco" value={preco} onChange={handlePreco} />
         </div>
         <div>
